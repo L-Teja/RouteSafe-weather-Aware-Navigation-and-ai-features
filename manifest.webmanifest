@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "RouteSafe Weather and Disaster Safety",
+  "short_name": "RouteSafe",
+  "description": "Weather forecasts, hazard awareness and emergency preparedness.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#071426",
+  "theme_color": "#071426",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
