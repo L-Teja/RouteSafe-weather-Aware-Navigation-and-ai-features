@@ -34,6 +34,8 @@
 
   <main class="app-layout">
     <aside class="sidebar">
+
+      <!-- WEATHER DASHBOARD -->
       <section class="panel location-panel">
         <div class="section-heading">
           <div>
@@ -55,18 +57,22 @@
           <div id="weatherEmoji" class="weather-emoji">🌤️</div>
         </div>
 
-        <p id="lastUpdated" class="muted small">Waiting for weather data…</p>
+        <p id="lastUpdated" class="muted small">
+          Waiting for weather data…
+        </p>
 
         <div class="weather-grid">
           <article class="metric-card">
             <span>Humidity</span>
             <strong id="humidity">--%</strong>
           </article>
+
           <article class="metric-card">
             <span>Wind speed</span>
             <strong id="wind">-- <small>km/h</small></strong>
             <small id="windDirection">--</small>
           </article>
+
           <article class="metric-card">
             <span>Precipitation</span>
             <strong id="rain">-- <small>mm</small></strong>
@@ -75,6 +81,7 @@
         </div>
       </section>
 
+      <!-- MULTILINGUAL VOICE ASSISTANT -->
       <section class="panel">
         <div class="section-heading">
           <div>
@@ -84,16 +91,28 @@
           <span class="icon-pill">♫</span>
         </div>
 
-        <p class="muted">Listen to current weather conditions and the forecast.</p>
+        <p class="muted">
+          Listen to current weather conditions and the forecast.
+        </p>
 
         <div class="button-row">
-          <button id="readWeather" class="button button-primary" type="button">🔊 Read weather</button>
-          <button id="readForecast" class="button button-secondary" type="button">Forecast</button>
+          <button id="readWeather" class="button button-primary" type="button">
+            🔊 Read weather
+          </button>
+
+          <button id="readForecast" class="button button-secondary" type="button">
+            Forecast
+          </button>
         </div>
 
         <div class="button-row">
-          <button id="voiceToggle" class="button button-secondary" type="button">🎙 Voice commands</button>
-          <button id="muteVoice" class="button button-secondary" type="button">🔇 Stop voice</button>
+          <button id="voiceToggle" class="button button-secondary" type="button">
+            🎙 Voice commands
+          </button>
+
+          <button id="muteVoice" class="button button-secondary" type="button">
+            🔇 Stop voice
+          </button>
         </div>
 
         <label for="voiceLanguage">Speech language</label>
@@ -105,11 +124,21 @@
         </select>
 
         <label for="speechRate">Speech speed</label>
-        <input id="speechRate" type="range" min="0.7" max="1.3" step="0.1" value="1">
+        <input
+          id="speechRate"
+          type="range"
+          min="0.7"
+          max="1.3"
+          step="0.1"
+          value="1"
+        >
 
-        <p id="voiceStatus" class="status-message" aria-live="polite">Voice assistant ready.</p>
+        <p id="voiceStatus" class="status-message" aria-live="polite">
+          Voice assistant ready.
+        </p>
       </section>
 
+      <!-- HOURLY FORECAST -->
       <section class="panel">
         <div class="section-heading">
           <div>
@@ -117,11 +146,13 @@
             <h2>Hourly forecast</h2>
           </div>
         </div>
+
         <div id="hourlyForecast" class="hourly-forecast">
           <p class="muted">Forecast will appear here.</p>
         </div>
       </section>
 
+      <!-- SEVEN-DAY FORECAST -->
       <section class="panel">
         <div class="section-heading">
           <div>
@@ -129,11 +160,13 @@
             <h2>Daily forecast</h2>
           </div>
         </div>
+
         <div id="dailyForecast" class="daily-forecast">
           <p class="muted">Forecast will appear here.</p>
         </div>
       </section>
 
+      <!-- WEATHER ALERTS -->
       <section class="panel alerts-panel">
         <div class="section-heading">
           <div>
@@ -151,25 +184,38 @@
           <option value="next48">Next 48 hours</option>
         </select>
 
-        <p id="liveAlertSummary" class="muted">Weather alerts will appear here.</p>
+        <p id="liveAlertSummary" class="muted">
+          Weather alerts will appear here.
+        </p>
+
         <div id="dynamicAlertList" class="alert-list"></div>
 
-        <button id="enableNotifications" class="button button-secondary" type="button">
+        <button
+          id="enableNotifications"
+          class="button button-secondary"
+          type="button"
+        >
           Enable notifications
         </button>
       </section>
     </aside>
 
     <section class="main-content">
+
+      <!-- WELCOME -->
       <section class="welcome-row">
         <div>
           <span class="eyebrow">SMART MOBILITY</span>
           <h1>Plan a safer journey.</h1>
-          <p class="muted">Explore mapped streets and plan a route using current weather information.</p>
+          <p class="muted">
+            Explore mapped streets and plan a route using current weather information.
+          </p>
         </div>
+
         <div class="map-badge">LIVE MAP</div>
       </section>
 
+      <!-- ROUTE PLANNER -->
       <section class="panel route-panel">
         <div class="section-heading">
           <div>
@@ -180,14 +226,27 @@
 
         <form id="routeForm" class="route-form">
           <div class="route-fields">
+
             <div class="field-group">
               <label for="origin">Starting point</label>
-              <input id="origin" class="field" type="text" placeholder="City, street or coordinates" required>
+              <input
+                id="origin"
+                class="field"
+                type="text"
+                placeholder="City, street or coordinates"
+                required
+              >
             </div>
 
             <div class="field-group">
               <label for="destination">Destination</label>
-              <input id="destination" class="field" type="text" placeholder="City, street or coordinates" required>
+              <input
+                id="destination"
+                class="field"
+                type="text"
+                placeholder="City, street or coordinates"
+                required
+              >
             </div>
 
             <div class="field-group">
@@ -201,9 +260,25 @@
           </div>
 
           <div class="button-row route-actions">
-            <button class="button button-primary" type="submit">Find route</button>
-            <button id="useLocation" class="button button-secondary" type="button">◎ Use my location</button>
-            <button id="resetMap" class="button button-secondary" type="button">Reset map</button>
+            <button class="button button-primary" type="submit">
+              Find route
+            </button>
+
+            <button
+              id="useLocation"
+              class="button button-secondary"
+              type="button"
+            >
+              ◎ Use my location
+            </button>
+
+            <button
+              id="resetMap"
+              class="button button-secondary"
+              type="button"
+            >
+              Reset map
+            </button>
           </div>
         </form>
 
@@ -213,6 +288,7 @@
 
         <div id="routeResults" class="route-results"></div>
 
+        <!-- TURN-BY-TURN NAVIGATION -->
         <section id="navigationControls" class="navigation-panel hidden">
           <div class="section-heading">
             <div>
@@ -221,36 +297,84 @@
             </div>
           </div>
 
-          <p id="nextInstruction" class="next-instruction">Choose a route to begin.</p>
+          <p id="nextInstruction" class="next-instruction">
+            Choose a route to begin.
+          </p>
 
           <div class="button-row">
-            <button id="startNavigation" class="button button-primary" type="button">▶ Start</button>
-            <button id="pauseNavigation" class="button button-secondary" type="button">Ⅱ Pause</button>
-            <button id="repeatInstruction" class="button button-secondary" type="button">↻ Repeat</button>
-            <button id="stopNavigation" class="button button-danger" type="button">■ Stop</button>
+            <button
+              id="startNavigation"
+              class="button button-primary"
+              type="button"
+            >
+              ▶ Start
+            </button>
+
+            <button
+              id="pauseNavigation"
+              class="button button-secondary"
+              type="button"
+            >
+              Ⅱ Pause
+            </button>
+
+            <button
+              id="repeatInstruction"
+              class="button button-secondary"
+              type="button"
+            >
+              ↻ Repeat
+            </button>
+
+            <button
+              id="stopNavigation"
+              class="button button-danger"
+              type="button"
+            >
+              ■ Stop
+            </button>
           </div>
 
           <p class="muted route-step-note">
             Street names and turn instructions are supplied by the routing provider;
             unnamed roads may appear as “unnamed road”.
           </p>
+
           <ol id="turnList" class="turn-list"></ol>
         </section>
       </section>
 
+      <!-- MAP -->
       <section class="panel map-panel">
         <div class="section-heading map-heading">
           <div>
             <span class="eyebrow">STREET EXPLORER</span>
             <h2>City streets and routes</h2>
-            <p class="muted">Pan, zoom, select a map point, and explore mapped roads.</p>
+            <p class="muted">
+              Pan, zoom, select a map point, and explore mapped roads.
+            </p>
           </div>
 
           <div class="map-controls">
-            <label class="check-label"><input id="showCities" type="checkbox" checked> Cities</label>
-            <label class="check-label"><input id="showIncidents" type="checkbox" checked> Incidents</label>
-            <label class="check-label"><input id="showRoute" type="checkbox" checked> Route</label>
-            <label class="check-label"><input id="showRiskZones" type="checkbox" checked> Rain, heat & cold zones</label>
+            <label class="check-label">
+              <input id="showCities" type="checkbox" checked>
+              Cities
+            </label>
+
+            <label class="check-label">
+              <input id="showIncidents" type="checkbox" checked>
+              Incidents
+            </label>
+
+            <label class="check-label">
+              <input id="showRoute" type="checkbox" checked>
+              Route
+            </label>
+
+            <label class="check-label">
+              <input id="showRiskZones" type="checkbox" checked>
+              Rain, heat & cold zones
+            </label>
           </div>
         </div>
 
@@ -258,26 +382,52 @@
 
         <div class="temperature-zone-legend" aria-label="Temperature zone legend">
           <strong>Temperature zone legend</strong>
-          <span><i class="zone-dot extreme-heat"></i> Red: extreme heat (≥ 40°C)</span>
-          <span><i class="zone-dot high-heat"></i> Orange: high heat (≥ 35°C)</span>
-          <span><i class="zone-dot warm-weather"></i> Yellow: warm weather (≥ 30°C)</span>
-          <span><i class="zone-dot extreme-cold"></i> Dark blue: extreme cold (≤ 5°C)</span>
-          <span><i class="zone-dot cold-weather"></i> Blue: cold weather (≤ 10°C)</span>
-          <span><i class="zone-dot cool-weather"></i> Cyan: cool weather (≤ 15°C)</span>
-          <span><i class="zone-dot rain-risk"></i> Rain-risk zones depend on forecast thresholds</span>
+
+          <span>
+            <i class="zone-dot extreme-heat"></i>
+            Red: extreme heat (≥ 40°C)
+          </span>
+
+          <span>
+            <i class="zone-dot high-heat"></i>
+            Orange: high heat (35–39.9°C)
+          </span>
+
+          <span>
+            <i class="zone-dot warm"></i>
+            Yellow: hot (30–34.9°C)
+          </span>
+
+          <span>
+            <i class="zone-dot severe-cold"></i>
+            Dark blue: severe cold (≤ 5°C)
+          </span>
+
+          <span>
+            <i class="zone-dot cold"></i>
+            Blue: cold (5.1–10°C)
+          </span>
+
+          <span>
+            <i class="zone-dot cool"></i>
+            Cyan: cool (10.1–15°C)
+          </span>
         </div>
 
-        <p class="muted small">
-          Temperature zones are indicative visualizations based on forecast thresholds,
-          not official warning boundaries. Follow official weather and emergency advisories.
+        <p class="map-footnote">
+          Street and path coverage depends on OpenStreetMap data availability.
+          Temperature circles are indicative around the selected city, not official
+          warning boundaries. Always follow official weather alerts, local signs
+          and road rules.
         </p>
       </section>
 
+      <!-- ROAD INCIDENT REPORTING -->
       <section class="panel">
         <div class="section-heading">
           <div>
-            <span class="eyebrow">ROAD CONDITIONS</span>
-            <h2>Community incident reports</h2>
+            <span class="eyebrow">COMMUNITY SAFETY</span>
+            <h2>Report a road incident</h2>
           </div>
         </div>
 
@@ -285,74 +435,126 @@
           <div class="field-group">
             <label for="incidentType">Incident type</label>
             <select id="incidentType" class="field">
-              <option value="flooding">Flooded road</option>
+              <option value="flooding">Flooding / waterlogging</option>
+              <option value="pothole">Pothole / damaged road</option>
               <option value="accident">Accident</option>
-              <option value="roadwork">Roadwork</option>
               <option value="closure">Road closure</option>
-              <option value="fallen-tree">Fallen tree</option>
-              <option value="other">Other hazard</option>
+              <option value="obstruction">Road obstruction</option>
+              <option value="other">Other</option>
             </select>
           </div>
 
           <div class="field-group">
-            <label for="incidentDescription">Description</label>
-            <input id="incidentDescription" class="field" type="text" maxlength="240" placeholder="Describe the road condition">
+            <label for="incidentLocation">Location</label>
+            <input
+              id="incidentLocation"
+              class="field"
+              type="text"
+              placeholder="Street or nearby landmark"
+              required
+            >
           </div>
 
-          <div class="button-row">
-            <button class="button button-primary" type="submit">Report near map centre</button>
+          <div class="field-group">
+            <label for="incidentDescription">Description</label>
+            <textarea
+              id="incidentDescription"
+              class="field"
+              rows="3"
+              placeholder="Describe what you observed"
+              required
+            ></textarea>
           </div>
+
+          <button class="button button-primary" type="submit">
+            Submit report
+          </button>
         </form>
 
-        <p id="incidentMessage" class="status-message" aria-live="polite"></p>
+        <div class="incident-filter-row">
+          <label for="incidentFilter">Show reports</label>
+          <select id="incidentFilter" class="field">
+            <option value="all">All reports</option>
+            <option value="flooding">Flooding</option>
+            <option value="pothole">Potholes</option>
+            <option value="accident">Accidents</option>
+            <option value="closure">Closures</option>
+            <option value="obstruction">Obstructions</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
         <div id="incidentList" class="incident-list"></div>
       </section>
 
-      <section class="panel">
+      <!-- TRIP SAFETY DASHBOARD -->
+      <section class="panel safety-dashboard" id="safetyDashboard">
         <div class="section-heading">
           <div>
-            <span class="eyebrow">TRIP SAFETY</span>
-            <h2>Journey risk overview</h2>
+            <span class="eyebrow">ROUTESAFE PLUS</span>
+            <h2>Trip safety dashboard</h2>
           </div>
+          <span class="icon-pill">✦</span>
         </div>
 
-        <div class="safety-grid">
-          <article class="metric-card">
-            <span>Weather risk</span>
-            <strong id="weatherRiskScore">--</strong>
-            <small id="weatherRiskLabel">Waiting for weather</small>
+        <div class="safety-stats">
+          <article class="safety-stat">
+            <span>Route weather risk</span>
+            <strong id="routeWeatherRisk">--</strong>
+            <small id="routeWeatherRiskDetail">
+              Waiting for route and weather
+            </small>
           </article>
 
-          <article class="metric-card">
-            <span>Route distance</span>
-            <strong id="routeDistance">--</strong>
-            <small>Estimated route length</small>
+          <article class="safety-stat">
+            <span>Saved routes</span>
+            <strong id="savedRouteCount">0</strong>
+            <small>Stored on this device</small>
           </article>
 
-          <article class="metric-card">
-            <span>Travel duration</span>
-            <strong id="routeDuration">--</strong>
-            <small>Provider estimate</small>
-          </article>
-
-          <article class="metric-card">
-            <span>Temperature risk</span>
-            <strong id="temperatureRisk">--</strong>
-            <small id="temperatureRiskLabel">Waiting for weather</small>
+          <article class="safety-stat">
+            <span>Trip history</span>
+            <strong id="tripHistoryCount">0</strong>
+            <small>Stored on this device</small>
           </article>
         </div>
 
         <div class="safety-actions">
-          <label class="check-label"><input id="showRiskZonesDashboard" type="checkbox" checked> Show rain, heat & cold zones</label>
-          <button id="saveCurrentRoute" class="button button-secondary" type="button">☆ Save route</button>
-          <button id="shareTrip" class="button button-secondary" type="button">↗ Share trip</button>
-          <button id="sosButton" class="button button-danger" type="button">⚠ Emergency SOS</button>
+          <label class="check-label">
+            <input id="showRiskZonesDashboard" type="checkbox" checked>
+            Show rain, heat & cold zones
+          </label>
+
+          <button
+            id="saveCurrentRoute"
+            class="button button-secondary"
+            type="button"
+          >
+            ☆ Save route
+          </button>
+
+          <button
+            id="shareTrip"
+            class="button button-secondary"
+            type="button"
+          >
+            ↗ Share trip
+          </button>
+
+          <button
+            id="sosButton"
+            class="button button-danger"
+            type="button"
+          >
+            ⚠ Emergency SOS
+          </button>
         </div>
 
         <p id="safetyMessage" class="status-message" aria-live="polite">
           Risk estimates use available forecast data; road flooding is not verified.
         </p>
 
+        <!-- FUEL COST AND TRIP REPORT -->
         <section class="trip-tools" aria-labelledby="tripToolsTitle">
           <div class="section-heading compact-heading">
             <div>
@@ -364,27 +566,61 @@
           <div class="trip-tools-grid">
             <div>
               <label for="fuelMileage">Vehicle mileage (km/L)</label>
-              <input id="fuelMileage" class="field" type="number" min="1" max="100" step="0.5" value="15">
+              <input
+                id="fuelMileage"
+                class="field"
+                type="number"
+                min="1"
+                max="100"
+                step="0.5"
+                value="15"
+              >
             </div>
+
             <div>
               <label for="fuelPrice">Fuel price (₹/L)</label>
-              <input id="fuelPrice" class="field" type="number" min="1" max="1000" step="0.5" value="105">
+              <input
+                id="fuelPrice"
+                class="field"
+                type="number"
+                min="1"
+                max="1000"
+                step="0.5"
+                value="105"
+              >
             </div>
-            <label class="check-label trip-roundtrip"><input id="roundTrip" type="checkbox"> Estimate round trip</label>
+
+            <label class="check-label trip-roundtrip">
+              <input id="roundTrip" type="checkbox">
+              Estimate round trip
+            </label>
           </div>
 
           <div class="fuel-estimate">
             <span>Estimated fuel cost</span>
             <strong id="fuelEstimate">Plan a route first</strong>
-            <small id="fuelEstimateDetails">Estimate uses route distance, mileage and your fuel price.</small>
+            <small id="fuelEstimateDetails">
+              Estimate uses route distance, mileage and your fuel price.
+            </small>
           </div>
 
           <div class="button-row">
-            <button id="exportTripReport" class="button button-secondary" type="button">⬇ Export trip report (CSV)</button>
+            <button
+              id="exportTripReport"
+              class="button button-secondary"
+              type="button"
+            >
+              ⬇ Export trip report (CSV)
+            </button>
           </div>
-          <p class="muted small">Cost is an estimate for driving routes only; traffic, detours and actual mileage may change it.</p>
+
+          <p class="muted small">
+            Cost is an estimate for driving routes only; traffic, detours and actual
+            mileage may change it.
+          </p>
         </section>
 
+        <!-- ADVANCED FEATURES -->
         <section class="advanced-panel" id="advancedFeatures">
           <div class="section-heading">
             <div>
@@ -394,33 +630,51 @@
           </div>
 
           <div class="advanced-grid">
+
             <div class="advanced-card">
               <h4>Road safety score</h4>
               <strong id="advancedSafetyScore">--/100</strong>
-              <p id="advancedSafetyReason" class="muted">Plan a route to calculate a preliminary score.</p>
+              <p id="advancedSafetyReason" class="muted">
+                Plan a route to calculate a preliminary score.
+              </p>
             </div>
 
             <div class="advanced-card">
               <h4>Visibility & weather alerts</h4>
               <p id="visibilityStatus">Waiting for forecast…</p>
-              <p class="muted">Fog, heavy rain, thunderstorm and strong-wind warnings use forecast thresholds.</p>
+              <p class="muted">
+                Fog, heavy rain, thunderstorm and strong-wind warnings use
+                forecast thresholds.
+              </p>
             </div>
 
             <div class="advanced-card">
               <h4>Smart departure time</h4>
-              <button id="suggestDeparture" class="button button-secondary" type="button">Suggest a time</button>
-              <p id="departureSuggestion" class="muted">Uses the available hourly forecast; traffic prediction requires a traffic provider.</p>
+              <button
+                id="suggestDeparture"
+                class="button button-secondary"
+                type="button"
+              >
+                Suggest a time
+              </button>
+              <p id="departureSuggestion" class="muted">
+                Uses the available hourly forecast; traffic prediction requires
+                a traffic provider.
+              </p>
             </div>
 
             <div class="advanced-card">
               <h4>Personal risk preferences</h4>
+
               <label for="riskPreference">Prioritize</label>
               <select id="riskPreference" class="field">
                 <option value="balanced">Balanced journey</option>
                 <option value="safety">Safety over speed</option>
                 <option value="time">Shortest travel time</option>
                 <option value="cost">Lower travel cost</option>
-                <option value="avoid-highways">Avoid highways where supported</option>
+                <option value="avoid-highways">
+                  Avoid highways where supported
+                </option>
               </select>
 
               <label for="vehicleType">Vehicle type</label>
@@ -429,88 +683,200 @@
                 <option value="motorcycle">Motorcycle</option>
                 <option value="bicycle">Bicycle</option>
                 <option value="walking">Walking</option>
-                <option value="heavy">Heavy vehicle (routing provider required)</option>
+                <option value="heavy">
+                  Heavy vehicle (routing provider required)
+                </option>
                 <option value="ev">Electric vehicle</option>
               </select>
             </div>
 
             <div class="advanced-card">
               <h4>Journey cost & EV planning</h4>
+
               <label for="tollEstimate">Estimated tolls (₹)</label>
-              <input id="tollEstimate" class="field" type="number" min="0" value="0">
+              <input
+                id="tollEstimate"
+                class="field"
+                type="number"
+                min="0"
+                value="0"
+              >
+
               <label for="evRange">EV range (km)</label>
-              <input id="evRange" class="field" type="number" min="1" value="250">
-              <p id="evAdvice" class="muted">Choose a route to estimate range suitability.</p>
+              <input
+                id="evRange"
+                class="field"
+                type="number"
+                min="1"
+                value="250"
+              >
+
+              <p id="evAdvice" class="muted">
+                Choose a route to estimate range suitability.
+              </p>
             </div>
 
             <div class="advanced-card">
               <h4>Nearby safe stops</h4>
+
               <div class="button-row">
-                <button id="findSafeStops" class="button button-secondary" type="button">Find services near map centre</button>
+                <button
+                  id="findSafeStops"
+                  class="button button-secondary"
+                  type="button"
+                >
+                  Find services near map centre
+                </button>
               </div>
-              <div id="safeStopsResults" class="muted">Searches nearby fuel stations, hospitals, police and rest stops using OpenStreetMap data.</div>
+
+              <div id="safeStopsResults" class="muted">
+                Searches nearby fuel stations, hospitals, police and rest stops
+                using OpenStreetMap data.
+              </div>
             </div>
 
             <div class="advanced-card">
               <h4>Hazard geofence</h4>
+
               <label for="geofenceRadius">Alert radius (metres)</label>
-              <input id="geofenceRadius" class="field" type="number" min="100" max="10000" value="1000">
-              <button id="enableGeofence" class="button button-secondary" type="button">Enable location alerts</button>
-              <p id="geofenceStatus" class="muted">Requires location permission and hazard coordinates.</p>
+              <input
+                id="geofenceRadius"
+                class="field"
+                type="number"
+                min="100"
+                max="10000"
+                value="1000"
+              >
+
+              <button
+                id="enableGeofence"
+                class="button button-secondary"
+                type="button"
+              >
+                Enable location alerts
+              </button>
+
+              <p id="geofenceStatus" class="muted">
+                Requires location permission and hazard coordinates.
+              </p>
             </div>
 
             <div class="advanced-card">
               <h4>Privacy & local data</h4>
-              <p class="muted">Trip records and preferences are stored in this browser. This demo does not create cloud accounts.</p>
+              <p class="muted">
+                Trip records and preferences are stored in this browser.
+                This demo does not create cloud accounts.
+              </p>
+
               <div class="button-row">
-                <button id="exportLocalData" class="button button-secondary" type="button">Export my data</button>
-                <button id="deleteLocalData" class="button button-danger" type="button">Delete local data</button>
+                <button
+                  id="exportLocalData"
+                  class="button button-secondary"
+                  type="button"
+                >
+                  Export my data
+                </button>
+
+                <button
+                  id="deleteLocalData"
+                  class="button button-danger"
+                  type="button"
+                >
+                  Delete local data
+                </button>
               </div>
             </div>
 
             <div class="advanced-card">
               <h4>Accessibility & language</h4>
+
               <label for="uiLanguage">Interface language</label>
               <select id="uiLanguage" class="field">
                 <option value="en">English</option>
                 <option value="te">తెలుగు (Telugu — basic labels)</option>
                 <option value="hi">हिन्दी (Hindi — basic labels)</option>
               </select>
-              <label class="check-label"><input id="accessibilityMode" type="checkbox"> Larger text & high contrast</label>
-              <p class="muted">Full translation and accessible routing require translated content and route data.</p>
+
+              <label class="check-label">
+                <input id="accessibilityMode" type="checkbox">
+                Larger text & high contrast
+              </label>
+
+              <p class="muted">
+                Full translation and accessible routing require translated
+                content and route data.
+              </p>
             </div>
 
             <div class="advanced-card">
               <h4>Black spots & admin review</h4>
-              <p id="blackspotStatus" class="muted">Only community reports available on this device can be summarized. Verified accident history is not connected.</p>
-              <button id="refreshBlackspots" class="button button-secondary" type="button">Summarize local reports</button>
-              <div id="adminSummary" class="muted">Local demo summary; not a shared moderation system.</div>
+
+              <p id="blackspotStatus" class="muted">
+                Only community reports available on this device can be
+                summarized. Verified accident history is not connected.
+              </p>
+
+              <button
+                id="refreshBlackspots"
+                class="button button-secondary"
+                type="button"
+              >
+                Summarize local reports
+              </button>
+
+              <div id="adminSummary" class="muted">
+                Local demo summary; not a shared moderation system.
+              </div>
             </div>
 
             <div class="advanced-card">
               <h4>Trip replay</h4>
-              <button id="replayLastTrip" class="button button-secondary" type="button">Replay last saved route</button>
-              <p id="tripReplayStatus" class="muted">Replays the saved route line if its coordinates are available.</p>
+
+              <button
+                id="replayLastTrip"
+                class="button button-secondary"
+                type="button"
+              >
+                Replay last saved route
+              </button>
+
+              <p id="tripReplayStatus" class="muted">
+                Replays the saved route line if its coordinates are available.
+              </p>
             </div>
 
             <div class="advanced-card">
               <h4>Offline pack status</h4>
-              <button id="saveOfflinePack" class="button button-secondary" type="button">Cache app shell</button>
-              <p id="offlinePackStatus" class="muted">The app shell can be cached. Live weather, live routing and all map tiles are not guaranteed offline.</p>
+
+              <button
+                id="saveOfflinePack"
+                class="button button-secondary"
+                type="button"
+              >
+                Cache app shell
+              </button>
+
+              <p id="offlinePackStatus" class="muted">
+                The app shell can be cached. Live weather, live routing and all
+                map tiles are not guaranteed offline.
+              </p>
             </div>
           </div>
 
           <p class="muted small">
-            Important: real-time traffic, verified accident black spots, heavy-vehicle constraints,
-            public transport, live family tracking, cloud admin tools, and official flood data
-            require provider APIs and/or a secure backend. These indicators do not replace
-            official warnings or local road signs.
+            Important: real-time traffic, verified accident black spots,
+            heavy-vehicle constraints, public transport, live family tracking,
+            cloud admin tools, and official flood data require provider APIs
+            and/or a secure backend. These indicators do not replace official
+            warnings or local road signs.
           </p>
         </section>
 
+        <!-- SAVED ROUTES AND TRIP HISTORY -->
         <div class="saved-routes-layout">
           <section id="savedRoutesPanel">
             <h3>Saved routes</h3>
+
             <div id="savedRoutesList" class="saved-routes-list">
               <p class="muted">Your saved routes will appear here.</p>
             </div>
@@ -519,23 +885,39 @@
           <section id="tripHistoryPanel">
             <div class="section-heading compact-heading">
               <h3>Recent trips</h3>
-              <button id="clearTripHistory" class="button button-secondary" type="button">Clear history</button>
+
+              <button
+                id="clearTripHistory"
+                class="button button-secondary"
+                type="button"
+              >
+                Clear history
+              </button>
             </div>
+
             <div id="tripHistoryList" class="saved-routes-list">
-              <p class="muted">Completed and started trips will appear here.</p>
+              <p class="muted">
+                Completed and started trips will appear here.
+              </p>
             </div>
           </section>
         </div>
       </section>
 
+      <!-- FOOTER -->
       <footer class="footer">
         <p>RouteSafe · Weather-aware travel planning</p>
-        <p>Forecasts and community reports are informational, not official emergency alerts.</p>
+        <p>
+          Forecasts and community reports are informational, not official
+          emergency alerts.
+        </p>
       </footer>
     </section>
   </main>
 
+  <!-- MAP LIBRARY AND APPLICATION SCRIPTS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="./script.js"></script>
+  <script src="./features.js"></script>
 </body>
 </html>
